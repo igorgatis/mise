@@ -21,6 +21,13 @@ EOF
 chmod +x /usr/local/bin/mise
 
 echo "Mise development shim created at /usr/local/bin/mise"
-echo "You can now run 'mise' commands which will use 'cargo run' under the hood" 
+echo "You can now run 'mise' commands which will use 'cargo run' under the hood"
 
 mise --cd /workspaces/mise install
+
+echo "Configuring SSH access..."
+if [ -f /usr/sbin/sshd ]; then
+  echo "SSH server is available"
+  echo "You can connect via: ssh -p 2222 root@localhost"
+  echo "Note: Use password authentication or add your SSH key to ~/.ssh/authorized_keys"
+fi
