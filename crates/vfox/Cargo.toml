@@ -44,7 +44,7 @@ xx = { version = "2", default-features = false, features = ["archive", "hash"] }
 env_logger = { version = "0.11", optional = true }
 clap = { version = "4", features = ["derive"], optional = true }
 tempfile = "3"
-sigstore-verification = "0.1.7"
+sigstore-verification = { version = "0.1.7", default-features = false }
 
 [dev-dependencies]
 insta = "1"
@@ -55,7 +55,7 @@ wiremock = "0.6"
 default = ["vendored-lua", "native-tls"]
 cli = ["clap", "tokio/full", "env_logger"]
 native-tls = ["xx/native-tls", "xx/http", "reqwest/native-tls"]
-rustls = ["xx/rustls", "xx/http", "reqwest/rustls-tls"]
+rustls = ["xx/rustls", "xx/http", "reqwest/rustls-tls", "sigstore-verification/rustls"]
 rustls-native-roots = [
   "reqwest/rustls-tls-native-roots",
   "xx/http",

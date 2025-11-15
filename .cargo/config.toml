@@ -2,6 +2,8 @@
 
 [env]
 RUST_TEST_THREADS = '1'
+ANDROID_NDK_ROOT = "/home/android-ndk-r27"
+ANDROID_NDK = "/home/android-ndk-r27"
 
 [target.aarch64-pc-windows-msvc]
 rustflags = ["-C", "link-arg=/STACK:8000000"]
@@ -11,3 +13,7 @@ rustflags = ["-C", "link-arg=-Wl,--stack,8000000"]
 rustflags = ["-C", "link-arg=/STACK:8000000"]
 [target.x86_64-pc-windows-gnu]
 rustflags = ["-C", "link-arg=-Wl,--stack,8000000"]
+
+[target.aarch64-linux-android]
+ar = "/home/android-ndk-r27/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ar"
+linker = "/home/android-ndk-r27/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang"

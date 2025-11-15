@@ -618,10 +618,10 @@ fn log_file_level() -> Option<LevelFilter> {
 }
 
 fn linux_distro() -> Option<String> {
-    match sys_info::linux_os_release() {
-        Ok(release) => release.id,
-        _ => None,
-    }
+    os_release::OS_RELEASE
+        .as_ref()
+        .ok()
+        .map(|release| release.id.clone())
 }
 
 fn filename(path: &str) -> &str {
